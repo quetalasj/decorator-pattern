@@ -1,11 +1,13 @@
 #include "beverages.h"
 
-string Beverage::getDescription() const {
+std::string Beverage::getDescription() const {
     return description;
 }
 
+
+
 double Expresso::cost() const {
-    return 1.99;
+   return 1.99;
 }
 
 Expresso::Expresso() {
@@ -19,3 +21,5 @@ HouseBlend::HouseBlend() {
 double HouseBlend::cost() const {
     return 0.89;
 }
+
+Beverage::~Beverage() = default;

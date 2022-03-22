@@ -1,24 +1,23 @@
 #pragma once
 #include "string"
 
-using namespace std;
-
 
 class Beverage {
 public:
-    string getDescription() const;
+    std::string description = "Unknown Beverage";
+    virtual ~Beverage();
+    virtual std::string getDescription() const;
     virtual double cost() const {};
-    string description = "Unknown Beverage";
 };
 
 
-class Expresso: public Beverage {
+class Expresso : public Beverage {
 public:
     Expresso();
     double cost() const override;
 };
 
-class HouseBlend: public Beverage {
+class HouseBlend : public Beverage {
 public:
     HouseBlend();
     double cost() const override;

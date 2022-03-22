@@ -3,17 +3,26 @@
 #include "string"
 #include "memory"
 
-using namespace std;
 
-class CondimentDecorator: public Beverage {
+class CondimentDecorator : public Beverage {
+
+protected:
+    std::shared_ptr<Beverage> beverage;
 public:
-    virtual string getDescription() const {};
+    CondimentDecorator(std::shared_ptr<Beverage> beverage);
+    std::string getDescription() const override;
 };
 
-class Mocha: public CondimentDecorator {
+class Mocha : public CondimentDecorator {
 public:
-    shared_ptr<Beverage> beverage;
-    Mocha(const shared_ptr<Beverage>& beverage);
-    string getDescription() const override;
-    double cost() const;
+    Mocha(std::shared_ptr<Beverage> beverage);
+    std::string getDescription() const override;
+    double cost() const override;
+};
+
+class Sugar : public CondimentDecorator {
+public:
+    Sugar(std::shared_ptr<Beverage> beverage);
+    std::string getDescription() const override;
+    double cost() const override;
 };
